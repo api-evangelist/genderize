@@ -1,0 +1,72 @@
+name: Genderize.io Plans and Pricing
+description: Pricing plans for the Genderize.io gender prediction API, part of the Demografix suite alongside Agify and Nationalize. All paid plans include access to all three APIs under a single API key.
+url: https://genderize.io/pricing
+plans:
+
+  - name: Free
+    description: No-cost tier for prototyping and small research projects. No credit card required.
+    price: 0
+    currency: USD
+    period: month
+    features:
+      - label: Names per month
+        value: "2,500"
+      - label: API key required
+        value: "No"
+      - label: Country-scoped requests
+        value: "Yes"
+      - label: Batch requests (up to 10 names)
+        value: "Yes"
+      - label: GDPR compliant
+        value: "Yes"
+      - label: Overage policy
+        value: 429 responses until next billing cycle; no overage charges
+    url: https://genderize.io
+
+  - name: Standard
+    description: Paid plan for production workloads requiring higher name volumes.
+    price: 60
+    currency: USD
+    period: month
+    features:
+      - label: Names per month
+        value: "250,000"
+      - label: Effective rate
+        value: "$0.24 per 1,000 names"
+      - label: Annual discount
+        value: "~17% (equivalent to 2 free months)"
+      - label: API key shared across Genderize, Agify, Nationalize
+        value: "Yes"
+      - label: No request rate limiting
+        value: "Yes"
+      - label: Email support
+        value: "Yes"
+      - label: Spreadsheet bulk upload
+        value: "Yes"
+      - label: Zapier, Make, Pipedream integrations
+        value: "Yes"
+      - label: GDPR and DPA compliance
+        value: "Yes"
+      - label: Country-scoped requests
+        value: "Yes"
+      - label: Community SDKs (12+ languages)
+        value: "Yes"
+      - label: Overage policy
+        value: 429 responses until next billing cycle; no overage charges
+    url: https://genderize.io/pricing
+
+  - name: Enterprise
+    description: Custom high-volume plan for 25 million or more names per month. Pricing available on request.
+    price: custom
+    currency: USD
+    period: month
+    features:
+      - label: Names per month
+        value: "25,000,000+"
+      - label: Custom pricing
+        value: "Yes"
+      - label: All Standard plan features
+        value: "Yes"
+      - label: Dedicated support
+        value: "Yes"
+    url: https://genderize.io/pricing

@@ -1,0 +1,49 @@
+name: Genderize.io FinOps
+description: Financial operations guidance for managing Genderize.io API costs. The service uses a name-based consumption model — costs are driven by the number of distinct names processed per month, not by number of API calls. Batch requests count each name individually. One API key covers Genderize, Agify, and Nationalize, with allowances shared across all three services under a single subscription.
+url: https://genderize.io/pricing
+
+model:
+  type: subscription
+  unit: name
+  period: month
+  overage: none
+  rollover: false
+  description: Monthly flat-rate subscription with a hard name allowance cap. No overage charges — requests return HTTP 429 after quota exhaustion. Annual billing saves approximately 17% (two months free).
+
+cost_drivers:
+  - name: Name volume
+    description: Every name processed counts against the monthly allowance, whether sent individually or in batches. A single API call with 10 names in a name[] array costs 10 units.
+  - name: Country-scoped requests
+    description: Adding the country_id parameter does not change the cost per name but may improve prediction accuracy, helping to avoid re-processing.
+  - name: Cross-service usage
+    description: The same allowance and API key apply to Agify (age prediction) and Nationalize (nationality prediction). Mixed usage across services all draws from the same monthly quota.
+
+optimization:
+  - tip: Use batch requests
+    description: Send up to 10 names per API call using the name[] parameter to minimize HTTP overhead and improve throughput without increasing name consumption cost.
+  - tip: Cache results
+    description: Gender predictions for common names are deterministic. Cache responses locally to avoid re-processing the same name multiple times within a billing period.
+  - tip: Use country_id selectively
+    description: Country-scoped lookups improve accuracy for ambiguous names. Accurate first-pass results reduce the need to re-query or manually correct predictions.
+  - tip: Monitor rate-limit headers
+    description: Track X-Rate-Limit-Remaining to avoid unexpected quota exhaustion mid-month. Build alerting when remaining falls below a threshold (e.g., 10% of limit).
+  - tip: Annual billing
+    description: Switching from monthly to annual billing saves approximately 17%, equivalent to two free months per year.
+  - tip: Right-size the plan
+    description: The Free tier (2,500 names/month) covers prototyping. Upgrade to Standard (250,000 names/month at $60/month) only when production volume exceeds the free allowance. Contact sales for Enterprise at 25M+ names/month.
+
+tiers:
+  - plan: Free
+    monthly_cost_usd: 0
+    names_per_month: 2500
+    cost_per_1000_names_usd: 0
+
+  - plan: Standard
+    monthly_cost_usd: 60
+    names_per_month: 250000
+    cost_per_1000_names_usd: 0.24
+
+  - plan: Enterprise
+    monthly_cost_usd: custom
+    names_per_month: 25000000+
+    cost_per_1000_names_usd: custom

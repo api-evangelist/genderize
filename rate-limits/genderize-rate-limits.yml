@@ -1,0 +1,53 @@
+name: Genderize.io Rate Limits
+description: Genderize.io operates on a monthly name-allowance model rather than per-second or per-minute request throttling. There is no traditional rate limiting — requests can be made as fast as needed within the monthly quota. Names are counted individually; sending a batch of 10 names counts as 10 names against the monthly allowance. Unused allowances do not roll over.
+url: https://genderize.io/faq
+
+limits:
+
+  - name: Free Tier Monthly Allowance
+    description: Maximum names that can be processed per calendar month on the free plan.
+    quota: 2500
+    unit: names
+    period: month
+    scope: account
+    enforcement: Hard limit — requests return HTTP 429 once quota is exhausted until the next billing cycle.
+
+  - name: Standard Plan Monthly Allowance
+    description: Maximum names that can be processed per calendar month on the Standard paid plan.
+    quota: 250000
+    unit: names
+    period: month
+    scope: account
+    enforcement: Hard limit — requests return HTTP 429 once quota is exhausted until the next billing cycle.
+
+  - name: Enterprise Plan Monthly Allowance
+    description: Custom high-volume allowance negotiated for Enterprise customers (25 million+ names per month).
+    quota: 25000000
+    unit: names
+    period: month
+    scope: account
+    enforcement: Custom — defined in enterprise agreement.
+
+  - name: Batch Request Size
+    description: Maximum number of names that can be submitted in a single API request using the name[] array parameter.
+    quota: 10
+    unit: names
+    period: request
+    scope: request
+    enforcement: Hard limit enforced by the API.
+
+headers:
+  - name: X-Rate-Limit-Limit
+    description: The total monthly name allowance for the account.
+  - name: X-Rate-Limit-Remaining
+    description: The number of names remaining in the current monthly window.
+  - name: X-Rate-Limit-Reset
+    description: The time in seconds until the monthly allowance resets.
+
+errors:
+  - status: 429
+    message: Request limit reached
+    description: Monthly name quota has been exhausted. Requests will be rejected until the next billing cycle.
+  - status: 429
+    message: Request too low to process
+    description: The API is rate-throttling the client. Retry after a short delay.
