@@ -1,0 +1,22 @@
+{
+  "description": "Authenticated request using an API key for higher quota access",
+  "request": {
+    "method": "GET",
+    "url": "https://api.genderize.io/?name=james&apikey=YOUR_API_KEY",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "X-Rate-Limit-Limit": "100000",
+      "X-Rate-Limit-Remaining": "99999",
+      "X-Rate-Limit-Reset": "2592000"
+    },
+    "body": {
+      "name": "james",
+      "gender": "male",
+      "probability": 0.98,
+      "count": 3547638
+    }
+  }
+}

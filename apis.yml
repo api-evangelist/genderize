@@ -29,7 +29,7 @@ apis:
       - type: Documentation
         url: https://genderize.io/documentation/api/reference
       - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/genderize/refs/heads/main/openapi.yml
+        url: https://raw.githubusercontent.com/api-evangelist/genderize/refs/heads/main/openapi/openapi.yml
 common:
   - type: Website
     url: https://genderize.io

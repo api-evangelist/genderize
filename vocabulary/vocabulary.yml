@@ -1,0 +1,67 @@
+vocabulary:
+  - term: gender
+    definition: >
+      The predicted gender of a name, expressed as "male", "female", or null
+      when there is insufficient data to make a prediction.
+    source: https://genderize.io/documentation/api/reference
+
+  - term: probability
+    definition: >
+      A confidence score between 0 and 1 indicating how likely the predicted
+      gender is correct. A probability of 1.0 means all observed bearers of
+      the name in the dataset have that gender. Null when gender is null.
+    source: https://genderize.io/documentation/api/reference
+
+  - term: count
+    definition: >
+      The number of data samples (name occurrences from real users) used to
+      compute the gender prediction. A higher count generally indicates a more
+      reliable prediction.
+    source: https://genderize.io/documentation/api/reference
+
+  - term: country_id
+    definition: >
+      A two-letter ISO 3166-1 alpha-2 country code used to scope gender
+      predictions to a specific country. Useful for names that are gendered
+      differently across cultures (e.g., "Andrea" is predominantly male in
+      Italy but female in the US).
+    source: https://genderize.io/documentation/api/reference
+
+  - term: apikey
+    definition: >
+      An authentication key obtained from the Genderize.io account dashboard.
+      A single API key is shared across all three Demografix services:
+      Genderize, Agify, and Nationalize.
+    source: https://genderize.io/documentation
+
+  - term: batch request
+    definition: >
+      A single API call that submits up to 10 names simultaneously using the
+      `name[]` array parameter. Each name in the batch counts against the
+      rate-limit quota.
+    source: https://genderize.io/documentation/api/reference
+
+  - term: X-Rate-Limit-Limit
+    definition: >
+      Response header indicating the total number of names allowed in the
+      current rate-limit window.
+    source: https://genderize.io/documentation/api/reference
+
+  - term: X-Rate-Limit-Remaining
+    definition: >
+      Response header indicating the number of names remaining in the current
+      rate-limit window.
+    source: https://genderize.io/documentation/api/reference
+
+  - term: X-Rate-Limit-Reset
+    definition: >
+      Response header indicating the number of seconds until the current
+      rate-limit window resets.
+    source: https://genderize.io/documentation/api/reference
+
+  - term: Demografix
+    definition: >
+      The company behind Genderize.io, Agify.io, and Nationalize.io — three
+      complementary demographic prediction APIs that share a single API key
+      and are commonly used together for name-based demographic enrichment.
+    source: https://genderize.io

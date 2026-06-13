@@ -1,0 +1,22 @@
+{
+  "description": "Gender prediction scoped to a specific country using ISO 3166-1 alpha-2 country code",
+  "request": {
+    "method": "GET",
+    "url": "https://api.genderize.io/?name=andrea&country_id=IT",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "X-Rate-Limit-Limit": "1000",
+      "X-Rate-Limit-Remaining": "998",
+      "X-Rate-Limit-Reset": "86400"
+    },
+    "body": {
+      "name": "andrea",
+      "gender": "male",
+      "probability": 0.91,
+      "count": 48231
+    }
+  }
+}

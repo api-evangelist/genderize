@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/genderize/main/json-schema/error-response.json",
+  "title": "ErrorResponse",
+  "description": "Error response returned by the Genderize.io API for 4xx status codes.",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "string",
+      "description": "Human-readable description of the error.",
+      "examples": [
+        "Missing 'name' parameter",
+        "Invalid API key",
+        "Request limit reached"
+      ]
+    }
+  },
+  "required": ["error"],
+  "additionalProperties": false
+}

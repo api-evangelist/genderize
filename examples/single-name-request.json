@@ -1,0 +1,22 @@
+{
+  "description": "Single name gender prediction request",
+  "request": {
+    "method": "GET",
+    "url": "https://api.genderize.io/?name=james",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "X-Rate-Limit-Limit": "1000",
+      "X-Rate-Limit-Remaining": "999",
+      "X-Rate-Limit-Reset": "86400"
+    },
+    "body": {
+      "name": "james",
+      "gender": "male",
+      "probability": 0.98,
+      "count": 3547638
+    }
+  }
+}

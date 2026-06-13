@@ -1,0 +1,36 @@
+{
+  "description": "Batch of multiple names gender prediction request (up to 10 names)",
+  "request": {
+    "method": "GET",
+    "url": "https://api.genderize.io/?name[]=james&name[]=mary&name[]=andrea",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "X-Rate-Limit-Limit": "1000",
+      "X-Rate-Limit-Remaining": "997",
+      "X-Rate-Limit-Reset": "86400"
+    },
+    "body": [
+      {
+        "name": "james",
+        "gender": "male",
+        "probability": 0.98,
+        "count": 3547638
+      },
+      {
+        "name": "mary",
+        "gender": "female",
+        "probability": 0.99,
+        "count": 2164301
+      },
+      {
+        "name": "andrea",
+        "gender": "female",
+        "probability": 0.74,
+        "count": 312845
+      }
+    ]
+  }
+}

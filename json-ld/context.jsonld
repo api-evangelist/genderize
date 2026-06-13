@@ -1,0 +1,36 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "genderize": "https://genderize.io/vocabulary#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "GenderPrediction": "genderize:GenderPrediction",
+    "ErrorResponse": "genderize:ErrorResponse",
+
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "gender": {
+      "@id": "schema:gender",
+      "@type": "xsd:string"
+    },
+    "probability": {
+      "@id": "genderize:probability",
+      "@type": "xsd:decimal"
+    },
+    "count": {
+      "@id": "genderize:count",
+      "@type": "xsd:integer"
+    },
+    "country_id": {
+      "@id": "schema:addressCountry",
+      "@type": "xsd:string"
+    },
+    "error": {
+      "@id": "genderize:error",
+      "@type": "xsd:string"
+    }
+  }
+}

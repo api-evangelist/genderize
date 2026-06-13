@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/genderize/main/json-schema/gender-prediction.json",
+  "title": "GenderPrediction",
+  "description": "Gender prediction result returned by the Genderize.io API for a single first name.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name as processed by the API.",
+      "examples": ["james", "mary", "andrea"]
+    },
+    "gender": {
+      "type": ["string", "null"],
+      "enum": ["male", "female", null],
+      "description": "Predicted gender. Null when there is insufficient data to make a prediction.",
+      "examples": ["male", "female", null]
+    },
+    "probability": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score for the gender prediction, between 0 and 1. Null when gender is null.",
+      "examples": [0.98, 0.74, null]
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of data samples used to make the prediction.",
+      "examples": [3547638, 312845, 0]
+    }
+  },
+  "required": ["name", "gender", "probability", "count"],
+  "additionalProperties": false
+}

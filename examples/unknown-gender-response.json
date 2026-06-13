@@ -1,0 +1,22 @@
+{
+  "description": "Response when the API has insufficient data to predict gender for a name",
+  "request": {
+    "method": "GET",
+    "url": "https://api.genderize.io/?name=zzxyz",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "X-Rate-Limit-Limit": "1000",
+      "X-Rate-Limit-Remaining": "999",
+      "X-Rate-Limit-Reset": "86400"
+    },
+    "body": {
+      "name": "zzxyz",
+      "gender": null,
+      "probability": null,
+      "count": 0
+    }
+  }
+}
