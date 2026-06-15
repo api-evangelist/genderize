@@ -1,0 +1,14 @@
+{
+  "repo": "genderize",
+  "feeds": [
+    {
+      "source": "https://genderize.io/faq",
+      "feed_url": "https://genderize.io/faq",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-14T20:42:17Z"
+}
