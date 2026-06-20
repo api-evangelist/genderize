@@ -1,7 +1,7 @@
 aid: genderize
 name: Genderize.io
 description: Free REST API that predicts the gender of a first name with probability scores based on name statistics from millions of users worldwide. Part of the Demografix suite alongside Agify (age prediction) and Nationalize (nationality prediction), sharing a single API key across all three services.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/genderize/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -17,7 +17,7 @@ apis:
   - aid: genderize:genderize-api
     name: Genderize.io API
     description: REST API that accepts first names and returns gender predictions (male, female, or null) with probability scores and sample counts. Supports single names, batch requests of up to 10 names, and country-scoped lookups using ISO 3166-1 alpha-2 country codes.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://genderize.io
     baseURL: https://api.genderize.io
     tags:
