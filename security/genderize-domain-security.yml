@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: genderize.io
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 27 14:12:54 2026 GMT
+  hsts: false
+- host: api.genderize.io
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 27 14:12:54 2026 GMT
+  hsts: null
+domains:
+- domain: genderize.io
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
