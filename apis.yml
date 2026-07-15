@@ -31,6 +31,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/genderize/refs/heads/main/openapi/openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/genderize-agentic-access.yml
   - type: DomainSecurity
     url: security/genderize-domain-security.yml
   - type: Website
