@@ -1,12 +1,9 @@
 openapi: 3.0.3
 info:
-  title: Genderize.io API
-  description: >
-    Free REST API that predicts the gender of a first name with probability
-    scores based on name statistics from millions of users worldwide. Part
-    of the Demografix suite alongside Agify (age prediction) and Nationalize
-    (nationality prediction), sharing a single API key across all three
-    services.
+  title: Genderize.io Gender Prediction API
+  description: 'Free REST API that predicts the gender of a first name with probability scores based on name statistics from millions of users worldwide. Part of the Demografix suite alongside Agify (age prediction) and Nationalize (nationality prediction), sharing a single API key across all three services.
+
+    '
   version: 1.0.0
   contact:
     url: https://genderize.io
@@ -14,69 +11,66 @@ info:
     name: Commercial / Free Tier
     url: https://genderize.io/pricing
 servers:
-  - url: https://api.genderize.io
-    description: Production API server
+- url: https://api.genderize.io
+  description: Production API server
 tags:
-  - name: Gender Prediction
-    description: Predict the gender of one or more first names.
+- name: Gender Prediction
+  description: Predict the gender of one or more first names.
 paths:
   /:
     get:
       operationId: predictGender
       summary: Predict gender for a name or batch of names
-      description: >
-        Accepts a single first name or up to 10 names in a batch and returns
-        gender predictions (male, female, or null) along with probability
-        scores and sample counts. Optionally scoped to a specific country
-        using an ISO 3166-1 alpha-2 country code.
+      description: 'Accepts a single first name or up to 10 names in a batch and returns gender predictions (male, female, or null) along with probability scores and sample counts. Optionally scoped to a specific country using an ISO 3166-1 alpha-2 country code.
+
+        '
       tags:
-        - Gender Prediction
+      - Gender Prediction
       parameters:
-        - name: name
-          in: query
-          description: >
-            Single first name to predict gender for. Mutually exclusive with
-            the batch form `name[]`.
-          required: false
-          schema:
+      - name: name
+        in: query
+        description: 'Single first name to predict gender for. Mutually exclusive with the batch form `name[]`.
+
+          '
+        required: false
+        schema:
+          type: string
+          example: James
+      - name: name[]
+        in: query
+        description: 'Batch of first names (up to 10). Repeat the parameter for each name, e.g. `?name[]=James&name[]=Mary`.
+
+          '
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
             type: string
-            example: James
-        - name: name[]
-          in: query
-          description: >
-            Batch of first names (up to 10). Repeat the parameter for each
-            name, e.g. `?name[]=James&name[]=Mary`.
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: array
-            items:
-              type: string
-            maxItems: 10
-            example:
-              - James
-              - Mary
-        - name: country_id
-          in: query
-          description: >
-            Two-letter ISO 3166-1 alpha-2 country code used to localize
-            predictions to a specific country's naming conventions.
-          required: false
-          schema:
-            type: string
-            pattern: '^[A-Z]{2}$'
-            example: US
-        - name: apikey
-          in: query
-          description: >
-            API key obtained from the account dashboard. Required for
-            more than 100 names per day (free tier) or to access paid
-            plan quotas.
-          required: false
-          schema:
-            type: string
-            example: abc123def456
+          maxItems: 10
+          example:
+          - James
+          - Mary
+      - name: country_id
+        in: query
+        description: 'Two-letter ISO 3166-1 alpha-2 country code used to localize predictions to a specific country''s naming conventions.
+
+          '
+        required: false
+        schema:
+          type: string
+          pattern: ^[A-Z]{2}$
+          example: US
+      - name: apikey
+        in: query
+        description: 'API key obtained from the account dashboard. Required for more than 100 names per day (free tier) or to access paid plan quotas.
+
+          '
+        required: false
+        schema:
+          type: string
+          example: abc123def456
       responses:
         '200':
           description: Successful gender prediction response.
@@ -97,10 +91,10 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/GenderPrediction'
-                  - type: array
-                    items:
-                      $ref: '#/components/schemas/GenderPrediction'
+                - $ref: '#/components/schemas/GenderPrediction'
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/GenderPrediction'
               examples:
                 single:
                   summary: Single name prediction
@@ -112,14 +106,14 @@ paths:
                 batch:
                   summary: Batch name prediction
                   value:
-                    - name: james
-                      gender: male
-                      probability: 0.98
-                      count: 3547638
-                    - name: mary
-                      gender: female
-                      probability: 0.99
-                      count: 2164301
+                  - name: james
+                    gender: male
+                    probability: 0.98
+                    count: 3547638
+                  - name: mary
+                    gender: female
+                    probability: 0.99
+                    count: 2164301
                 withCountry:
                   summary: Country-scoped prediction
                   value:
@@ -180,11 +174,11 @@ components:
           type: string
           nullable: true
           enum:
-            - male
-            - female
-          description: >
-            Predicted gender. Null when there is insufficient data to make
-            a prediction.
+          - male
+          - female
+          description: 'Predicted gender. Null when there is insufficient data to make a prediction.
+
+            '
           example: male
         probability:
           type: number
@@ -192,21 +186,21 @@ components:
           nullable: true
           minimum: 0
           maximum: 1
-          description: >
-            Confidence score for the gender prediction, between 0 and 1.
-            Null when gender is null.
+          description: 'Confidence score for the gender prediction, between 0 and 1. Null when gender is null.
+
+            '
           example: 0.98
         count:
           type: integer
-          description: >
-            Number of data samples used to make the prediction. A higher
-            count generally indicates a more reliable prediction.
+          description: 'Number of data samples used to make the prediction. A higher count generally indicates a more reliable prediction.
+
+            '
           example: 3547638
       required:
-        - name
-        - gender
-        - probability
-        - count
+      - name
+      - gender
+      - probability
+      - count
     ErrorResponse:
       type: object
       description: Error response returned for 4xx status codes.
@@ -216,4 +210,4 @@ components:
           description: Human-readable description of the error.
           example: Missing 'name' parameter
       required:
-        - error
+      - error
