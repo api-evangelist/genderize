@@ -1,0 +1,14 @@
+{
+  "provider": "genderize",
+  "sources": [
+    "genderize-gender-prediction-api-openapi.yml"
+  ],
+  "outputs": [
+    "genderize-gender-prediction-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
