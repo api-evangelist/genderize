@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Genderize.io Gender Prediction API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gender Prediction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Predict gender for a name or batch of names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.genderize.io/",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Single first name to predict gender for. Mutually exclusive with the batch form `name[]`.\n"
+              },
+              {
+                "name": "name[]",
+                "value": "",
+                "type": "query",
+                "description": "Batch of first names (up to 10). Repeat the parameter for each name, e.g. `?name[]=James&name[]=Mary`.\n"
+              },
+              {
+                "name": "country_id",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter ISO 3166-1 alpha-2 country code used to localize predictions to a specific country's naming conventions.\n"
+              },
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query",
+                "description": "API key obtained from the account dashboard. Required for more than 100 names per day (free tier) or to access paid plan quotas.\n"
+              }
+            ]
+          },
+          "docs": "Accepts a single first name or up to 10 names in a batch and returns gender predictions (male, female, or null) along with probability scores and sample counts. Optionally scoped to a specific country using an ISO 3166-1 alpha-2 country code.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

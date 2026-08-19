@@ -1,0 +1,396 @@
+{
+  "item": [
+    {
+      "id": "6af15f87-0ba4-43ad-86f4-6bb39750d54a",
+      "name": "Gender Prediction",
+      "description": {
+        "content": "Predict the gender of one or more first names.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da0b68bd-7090-42ee-b8e4-bf6e34f4d3a2",
+          "name": "Predict gender for a name or batch of names",
+          "request": {
+            "name": "Predict gender for a name or batch of names",
+            "description": {
+              "content": "Accepts a single first name or up to 10 names in a batch and returns gender predictions (male, female, or null) along with probability scores and sample counts. Optionally scoped to a specific country using an ISO 3166-1 alpha-2 country code.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Single first name to predict gender for. Mutually exclusive with the batch form `name[]`.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "name[]",
+                  "value": "<string>",
+                  "description": "Batch of first names (up to 10). Repeat the parameter for each name, e.g. `?name[]=James&name[]=Mary`.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "name[]",
+                  "value": "<string>",
+                  "description": "Batch of first names (up to 10). Repeat the parameter for each name, e.g. `?name[]=James&name[]=Mary`.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "country_id",
+                  "value": "<string>",
+                  "description": "Two-letter ISO 3166-1 alpha-2 country code used to localize predictions to a specific country's naming conventions.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "API key obtained from the account dashboard. Required for more than 100 names per day (free tier) or to access paid plan quotas.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2583a6dc-efdb-4658-8d70-1ce65a61b6a8",
+              "name": "Successful gender prediction response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "Mary"
+                    },
+                    {
+                      "key": "country_id",
+                      "value": "US"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "abc123def456"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of names allowed in the current rate-limit window.",
+                  "key": "X-Rate-Limit-Limit",
+                  "value": "1571"
+                },
+                {
+                  "disabled": false,
+                  "description": "Number of names remaining in the current rate-limit window.",
+                  "key": "X-Rate-Limit-Remaining",
+                  "value": "1571"
+                },
+                {
+                  "disabled": false,
+                  "description": "Seconds until the current rate-limit window resets.",
+                  "key": "X-Rate-Limit-Reset",
+                  "value": "1571"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"james\",\n  \"gender\": \"male\",\n  \"probability\": 0.98,\n  \"count\": 3547638\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "526273b0-4225-4fbb-95c9-8a1acbda103f",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "Mary"
+                    },
+                    {
+                      "key": "country_id",
+                      "value": "US"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "abc123def456"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce0f9fa5-75d7-464e-9a57-7865962fed48",
+              "name": "Subscription limit reached or payment required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "Mary"
+                    },
+                    {
+                      "key": "country_id",
+                      "value": "US"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "abc123def456"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Request limit reached\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "293d9974-2432-49ea-8d35-ee8c3a4fce73",
+              "name": "Unprocessable request — missing or invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "Mary"
+                    },
+                    {
+                      "key": "country_id",
+                      "value": "US"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "abc123def456"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Missing 'name' parameter\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e94a5abc-3f05-40f5-acb4-7b77f99e1a5f",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "James"
+                    },
+                    {
+                      "key": "name[]",
+                      "value": "Mary"
+                    },
+                    {
+                      "key": "country_id",
+                      "value": "US"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "abc123def456"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Request limit reached\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.genderize.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "97396850-595c-4780-aa25-e819079eab7f",
+    "name": "Genderize.io Gender Prediction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free REST API that predicts the gender of a first name with probability scores based on name statistics from millions of users worldwide. Part of the Demografix suite alongside Agify (age prediction) and Nationalize (nationality prediction), sharing a single API key across all three services.\n",
+      "type": "text/plain"
+    }
+  }
+}
