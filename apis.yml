@@ -32,7 +32,7 @@ modified: '2026-06-13'
 specificationVersion: '0.23'
 tags:
   - Gender
-  - Names
+  - Name
   - Prediction
   - Demographics
   - Machine-Learning
