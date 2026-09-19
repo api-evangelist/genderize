@@ -33,7 +33,7 @@ specificationVersion: '0.23'
 tags:
   - Gender
   - Name
-  - Prediction
+  - Predictions
   - Demographics
   - Machine-Learning
   - Statistics
