@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Genderize.io Gender Prediction API
-  description: 'Free REST API that predicts the gender of a first name with probability scores based on name statistics from millions of users worldwide. Part of the Demografix suite alongside Agify (age prediction) and Nationalize (nationality prediction), sharing a single API key across all three services.
-
-    '
+  description: Free REST API that predicts the gender of a first name with probability scores based on name statistics from millions of users worldwide. Part of the Demografix suite alongside Agify (age prediction) and Nationalize (nationality prediction), sharing a single API key across all three services.
   version: 1.0.0
   contact:
     url: https://genderize.io
@@ -21,9 +19,7 @@ paths:
     get:
       operationId: predictGender
       summary: Predict gender for a name or batch of names
-      description: 'Accepts a single first name or up to 10 names in a batch and returns gender predictions (male, female, or null) along with probability scores and sample counts. Optionally scoped to a specific country using an ISO 3166-1 alpha-2 country code.
-
-        '
+      description: Accepts a single first name or up to 10 names in a batch and returns gender predictions (male, female, or null) along with probability scores and sample counts. Optionally scoped to a specific country using an ISO 3166-1 alpha-2 country code.
       tags:
       - Gender Prediction
       parameters:
@@ -162,6 +158,16 @@ paths:
                 error: Request limit reached
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Error response returned for 4xx status codes.
+      properties:
+        error:
+          type: string
+          description: Human-readable description of the error.
+          example: Missing 'name' parameter
+      required:
+      - error
     GenderPrediction:
       type: object
       description: Gender prediction result for a single name.
@@ -171,8 +177,9 @@ components:
           description: The name as processed by the API.
           example: james
         gender:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           enum:
           - male
           - female
@@ -181,9 +188,10 @@ components:
             '
           example: male
         probability:
-          type: number
+          type:
+          - number
+          - 'null'
           format: float
-          nullable: true
           minimum: 0
           maximum: 1
           description: 'Confidence score for the gender prediction, between 0 and 1. Null when gender is null.
@@ -201,13 +209,3 @@ components:
       - gender
       - probability
       - count
-    ErrorResponse:
-      type: object
-      description: Error response returned for 4xx status codes.
-      properties:
-        error:
-          type: string
-          description: Human-readable description of the error.
-          example: Missing 'name' parameter
-      required:
-      - error

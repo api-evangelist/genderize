@@ -1,0 +1,34 @@
+# Front Door AI Index — genderize — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: genderize
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: genderize.io
+  final_host: genderize.io
+  ownership: own
+  owner: genderize
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 21
+  host_score: 21
+  density: 9.88
+  words: 2125
+  tiers:
+    agentic: 12
+    core: 3
+    model: 6
+  ambiguous: 4
+  top_terms:
+    MCP: 9
+    Claude: 4
+    agent: 3
+    AI: 2
+    ChatGPT: 2
+    AI agent: 1
+    AI assistant: 1
+    LLMs: 1
+    automation: 1
+    model context protocol: 1
