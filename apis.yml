@@ -35,7 +35,7 @@ tags:
   - Name
   - Predictions
   - Demographics
-  - Machine-Learning
+  - Machine Learning
   - Statistics
 tags_raw:
   - Gender
@@ -44,6 +44,7 @@ tags_raw:
   - Demographics
   - Machine Learning
   - Statistics
+  - Machine-Learning
 apis:
 - aid: genderize:genderize-gender-prediction-api
   name: Genderize.io Gender Prediction API

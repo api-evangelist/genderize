@@ -158,16 +158,6 @@ paths:
                 error: Request limit reached
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      description: Error response returned for 4xx status codes.
-      properties:
-        error:
-          type: string
-          description: Human-readable description of the error.
-          example: Missing 'name' parameter
-      required:
-      - error
     GenderPrediction:
       type: object
       description: Gender prediction result for a single name.
@@ -209,3 +199,13 @@ components:
       - gender
       - probability
       - count
+    ErrorResponse:
+      type: object
+      description: Error response returned for 4xx status codes.
+      properties:
+        error:
+          type: string
+          description: Human-readable description of the error.
+          example: Missing 'name' parameter
+      required:
+      - error
