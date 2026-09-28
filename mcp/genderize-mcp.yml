@@ -16,6 +16,10 @@ deployment:
 tools_count: 1
 tools:
 - name: predict_gender
-  description: ''
+  description: Predict the gender of a person from their name. Returns the most likely gender ('male'
+    or 'female'), a probability score, and the count of people with that name in the underlying dataset.
+    Optionally scope by country (ISO 3166-1 alpha-2). Ac
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
