@@ -1,30 +1,28 @@
-# Kin Score artifact — genderize — 2026-08-25T133943
+# Kin Score artifact — genderize — 2026-10-03T000835
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: genderize
-  schema_version: 0.14.0
-  scored_at: '2026-08-25'
-  run_ts: 2026-08-25T133943
-  composite: 41.3
-  band: developing
+  schema_version: 0.23.0
+  scored_at: '2026-10-03'
+  run_ts: 2026-10-03T000835
+  composite: 38.1
+  band: thin
   facets:
-    discoverability: 68.5
-    contract_quality: 57.1
-    governance: 9.8
-    operational_transparency: 44.7
-    developer_ergonomics: 9.5
-    commercial_clarity: 56.6
+    discoverability: 68.3
+    contract_quality: 51.8
     contract_governance: 9.8
-    access_clarity: 56.6
+    operational_transparency: 41.6
+    developer_ergonomics: 9.5
+    access_clarity: 53.4
   agent_readiness:
-    score: 32.5
-    band: agent-ready
+    score: 42.5
+    band: agent-native
     dimensions:
       spec_presence: true
       agentic_access: derived
       reversibility_documented: na
-      mcp_server: false
+      mcp_server: verified
       auth_clarity: false
       idempotency: na
       error_semantics: verified
@@ -40,7 +38,14 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 10.0
+    matched_via: fallback
   provenance:
+    mcp: first-party
     agentic_access: derived
     contracts:
       total: 1
