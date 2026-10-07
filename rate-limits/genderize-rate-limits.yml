@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: Genderize.io Rate Limits
 description: Genderize.io operates on a monthly name-allowance model rather than per-second or per-minute request throttling. There is no traditional rate limiting — requests can be made as fast as needed within the monthly quota. Names are counted individually; sending a batch of 10 names counts as 10 names against the monthly allowance. Unused allowances do not roll over.
 url: https://genderize.io/faq

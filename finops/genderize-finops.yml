@@ -1,3 +1,11 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+# Coverage demoted 2026-10-07 (roadmap#942, PLAN.md Stage A): this file was written by an API Evangelist
+# sweep and names no billing unit, meters or pricing category read from the provider — it restates the
+# FinOps framework. It is `x-coverage: unmeasured`, and the FOCUS alignment it claimed has been removed.
+x-coverage: unmeasured
+method: generated
 name: Genderize.io FinOps
 description: Financial operations guidance for managing Genderize.io API costs. The service uses a name-based consumption model — costs are driven by the number of distinct names processed per month, not by number of API calls. Batch requests count each name individually. One API key covers Genderize, Agify, and Nationalize, with allowances shared across all three services under a single subscription.
 url: https://genderize.io/pricing
