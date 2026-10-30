@@ -66,81 +66,152 @@
 
 Free REST API that predicts the gender of a first name with probability scores based on name statistics from millions of users worldwide. Part of the Demografix suite alongside Agify (age prediction) and Nationalize (nationality prediction), sharing a single API key across all three services.
 
-- **Human URL:** https://genderize.io
-- **Base URL:** https://api.genderize.io
+**Areas:** Gender · Name · Predictions · Demographics · Machine Learning · Statistics
 
-## Description
+## Genderize.io on APIs.io
 
-Genderize.io accepts first names and returns gender predictions (male, female, or null) along with a probability score (0–1) and a sample count reflecting how many people in the dataset bear that name. The underlying dataset covers over one billion people. The API supports single-name lookups, batch requests of up to 10 names per call, and country-scoped lookups using ISO 3166-1 alpha-2 country codes for improved accuracy with regionally ambiguous names.
+Everything profiled for Genderize.io is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/genderize/](https://apis.io/providers/genderize/)** — or go straight to one of the APIs or properties below.
 
-## Links
+### APIs (1)
 
-- **Website:** https://genderize.io
-- **Documentation:** https://genderize.io/documentation
-- **API Reference:** https://genderize.io/documentation/api/reference
-- **Pricing:** https://genderize.io/pricing
-- **FAQ:** https://genderize.io/faq
-- **Login / API Key:** https://genderize.io/login
-- **Status Page:** https://status.genderize.io
-- **X (Twitter):** https://x.com/genderizeio
-- **GitHub:** https://github.com/genderize
-- **LinkedIn:** https://www.linkedin.com/company/demografix
+- [Genderize.io Gender Prediction API](https://apis.io/apis/genderize/genderize-gender-prediction-api/) — Predict the gender of one or more first names.
 
-## API Endpoint
+### Published properties
 
-**GET** `https://api.genderize.io?name={name}`
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Parameters
+#### MCP servers (1)
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `name` | Yes | First name to predict gender for |
-| `name[]` | No | Array of up to 10 names for batch requests |
-| `country_id` | No | ISO 3166-1 alpha-2 country code for localized prediction |
-| `apikey` | No (Free) / Yes (Paid) | API key from account dashboard |
+Model Context Protocol servers that expose the API to agents.
 
-### Example Response
+- [genderize](https://apis.io/servers/genderize/genderize/)
 
-```json
-{
-  "name": "james",
-  "gender": "male",
-  "probability": 0.99,
-  "count": 1234567
-}
-```
+#### Agentic access (1)
 
-### Response Headers
+Which operations an agent can call, which act, and which need a human in the loop.
 
-| Header | Description |
-|--------|-------------|
-| `X-Rate-Limit-Limit` | Total monthly name allowance |
-| `X-Rate-Limit-Remaining` | Names remaining in current window |
-| `X-Rate-Limit-Reset` | Seconds until allowance resets |
+- [Genderize Agentic Access](https://apis.io/agentic-access/genderize/genderize-agentic-access/)
 
-## Authentication
+#### JSON Schema (2)
 
-Free-tier requests require no API key. Paid accounts use an `apikey` query parameter obtained from the account dashboard. The same API key works across all three Demografix services (Genderize, Agify, Nationalize).
+The data models the API reads and writes.
 
-## Pricing
+- [ErrorResponse](https://apis.io/schemas/genderize/error-response/)
+- [GenderPrediction](https://apis.io/schemas/genderize/gender-prediction/)
 
-| Plan | Price | Names/Month |
-|------|-------|-------------|
-| Free | $0/month | 2,500 |
-| Standard | $60/month | 250,000 |
-| Enterprise | Custom | 25,000,000+ |
+#### JSON-LD (1)
 
-Annual billing saves approximately 17% (two months free). No overage charges — requests return HTTP 429 once the monthly quota is exhausted.
+Linked-data contexts for the provider's vocabulary.
 
-## Rate Limits
+- [context Context](https://apis.io/jsonld/genderize/context/)
 
-The service does not apply per-second or per-minute rate limits. All limits are monthly name-allowance caps. Names are counted individually regardless of whether sent singly or in batches. Unused allowances do not roll over.
+#### Examples (5)
 
-## Related APIs
+Example requests and responses.
 
-- **Agify.io** — Age prediction from first names: https://agify.io
-- **Nationalize.io** — Nationality prediction from first names: https://nationalize.io
+- [Authenticated Request](https://apis.io/examples/genderize/authenticated-request/)
+- [Batch Names Request](https://apis.io/examples/genderize/batch-names-request/)
+- [Country Scoped Request](https://apis.io/examples/genderize/country-scoped-request/)
+- [Single Name Request](https://apis.io/examples/genderize/single-name-request/)
+- [Unknown Gender Response](https://apis.io/examples/genderize/unknown-gender-response/)
 
----
+#### Collections (1)
 
-*This profile is maintained by [Kin Lane](mailto:kin@apievangelist.com) as part of the [API Evangelist](https://apievangelist.com) catalog.*
+Postman and Open Collection request collections.
+
+- [Genderize.io Gender Prediction API](https://apis.io/collections/genderize/open-genderize-gender-prediction-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Genderize.io — jsonschema rules](https://apis.io/rules/genderize/genderize-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Genderize Domain Security](https://apis.io/security/genderize/genderize-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Genderize Plans Pricing](https://apis.io/plans/genderize/genderize-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Genderize Rate Limits](https://apis.io/rate-limits/genderize/genderize-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Genderize Finops](https://apis.io/finops/genderize/genderize-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://genderize.io)
+- [Documentation](https://genderize.io/documentation)
+- [Pricing](https://genderize.io/pricing)
+- [Blog](https://genderize.io/blog)
+- [Status](https://status.genderize.io)
+
+## API Evangelist rating
+
+**Kin Score 29.8** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 51.8 |
+| Contract governance | 9.8 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 25.0 |
+
+**Agent readiness 40.3** — agent-native
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | verified |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 10.0** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/genderize/](https://apis.io/providers/genderize/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Genderize.io: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/genderize/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
